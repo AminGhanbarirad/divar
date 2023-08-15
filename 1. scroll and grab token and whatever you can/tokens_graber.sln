@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "tokens_graber", "tokens_graber.pyproj", "{1BDF4007-CA6D-4E6D-8916-BBF6EEFB99F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BDF4007-CA6D-4E6D-8916-BBF6EEFB99F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BDF4007-CA6D-4E6D-8916-BBF6EEFB99F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97B1440E-0E6A-4FDE-BD6A-A0D1CB8AD346}
+	EndGlobalSection
+EndGlobal

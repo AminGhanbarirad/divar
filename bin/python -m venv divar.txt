@@ -1,0 +1,11 @@
+python -m venv divar
+divar\Scripts\activate
+
+scrapy startproject divar_spdr
+
+scrapy genspider spider_name website.com
+
+deactivate
+
+
+

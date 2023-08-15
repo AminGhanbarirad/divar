@@ -1,0 +1,79 @@
+-------------------------------------------------------------------------
+ALTER TABLE tokens_T ADD COLUMN spam_title_C INTEGER
+
+UPDATE tokens_T SET spam_title_C = CASE
+WHEN title_C like "%خرید%"
+OR title_C like "%خراب%"
+OR title_C like "%مسافرت%"
+OR title_C like "%هتل%"
+OR title_C like "%صندوقی%"
+OR title_C like "%مینی%"
+OR title_C like "%ویترینی%"
+OR title_C like "%سوخته%"
+--OR title_C like "%تعمیر%"
+THEN 1
+ELSE 0
+END
+--برای ی ئ و ... یه حرکتی لازمه
+-------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------
+SELECT * FROM tokens_T WHERE status_C = "نو"
+
+UPDATE tokens_T SET status_C = CASE status_C
+WHEN "نو"           		THEN 1
+WHEN "در حد نو"            		THEN 2
+WHEN "کارکرده"                	THEN 3
+WHEN "نیازمند تعمیر"                	THEN 4
+END
+WHERE status_C IN ("نو"    ,"در حد نو"          ,"کارکرده"         ,"نیازمند تعمیر"               )
+-------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------
+SELECT * FROM tokens_T WHERE store_C = "فروشگاه "
+
+UPDATE tokens_T SET store_C = 1 WHERE store_C IN ("فروشگاه "          , "فروشگاه"         , "فوری در فروشگاه "                     )
+UPDATE tokens_T SET store_C = 0 WHERE store_C != 1
+--tokens_graber.py برای گرفتن store باید None رو پاک کنم
+-------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------
+UPDATE tokens_T
+SET price_C = CAST(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(price_C,
+',',''),'۰','0'),'۱','1'),'۲','2'),'۳','3'),'۴','4'),'۵','5'),'۶','6'),'۷','7'),'۸','8'),'۹','9')
+, 'تومان'       , '') AS INTEGER)
+WHERE price_C != "توافقی"
+-------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------
+--تهیه تست ست مهاجرت
+SELECT * from tokens_T where store_C = 0 and spam_title_C = 0 and status_C != 1 and status_C != 4 
+and description_C like "%مهاجرت%"
+-------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------
+ALTER TABLE tokens_T ADD COLUMN migration_description_flag_C INTEGER
+
+UPDATE tokens_T SET migration_description_flag_C = CASE
+WHEN description_C like "%مهاجرت%"
+OR description_C like "%علت سفر%"
+OR description_C like "%دلیل سفر%"
+OR title_C like "%مهاجرت%"
+OR title_C like "%علت سفر%"
+OR title_C like "%دلیل سفر%"
+THEN 1
+ELSE 0
+END
+-------------------------------------------------------------------------

@@ -1,0 +1,27 @@
+import sqlite3
+import scrapy
+from bs4 import BeautifulSoup
+
+conn = sqlite3.connect('30K.sqlite')
+cursor = conn.cursor()
+cursor.execute('SELECT token_C FROM tokens_T')
+tokens = [row[0] for row in cursor.fetchall()]
+#cursor.close()
+print(tokens)
+
+for token in tokens:
+    response = scrapy.Request(url=f'https://divar.ir/v/-/{token}')
+
+    html_content = response.body
+    
+    # Use BeautifulSoup to parse the HTML
+    soup = BeautifulSoup(html_content, 'html.parser')
+    
+    # Select the comment element and extract its text
+    comment_element = soup.select_one('div p.kt-description-row__text--primary')
+    comment = comment_element.get_text() if comment_element else None
+
+    cursor.execute('UPDATE tokens_T SET comment_C=? WHERE token_C=?', (comment, token))
+    conn.commit()
+
+conn.close()
