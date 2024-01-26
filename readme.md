@@ -17,7 +17,7 @@ Data Analysis: Leveraged Pandas and Matplotlib for data analysis. I focused on i
 
 Visualization: Created visualizations, such as price distribution histograms, to provide a clear representation of the data. This helped in identifying any patterns or anomalies in the pricing process influenced by immigration-related factors.
 
-Insights: Analyzed the findings to draw conclusions on how immigration-related mental impacts might affect the pricing of refrigerators. This could involve assessing whether sellers tend to lower prices due to urgency or emotional reasons associated with immigration.
+Insights: Analyzed the findings to draw conclusions on how immigration-related mental impacts might affect the pricing of home furniture. This could involve assessing whether sellers tend to lower prices due to urgency or emotional reasons associated with immigration.
 
 Challenges Faced:
 
