@@ -11,6 +11,8 @@ Web Scraping: Utilized Python's web scraping libraries, such as Beautiful Soup a
 
 Data Cleaning: Processed and cleaned the scraped data to ensure consistency and accuracy. This step involved handling missing values, removing duplicates, and standardizing the format of the information.
 
+Future ideas for project development :
+
 Data Analysis: Leveraged Pandas and Matplotlib for data analysis. I focused on identifying trends in refrigerator prices among ads specifically tagged with "Household Items for SALE due to IMMIGRATION ONLY."
 
 Visualization: Created visualizations, such as price distribution histograms, to provide a clear representation of the data. This helped in identifying any patterns or anomalies in the pricing process influenced by immigration-related factors.
